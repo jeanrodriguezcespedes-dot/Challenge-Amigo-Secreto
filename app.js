@@ -1,5 +1,3 @@
-// Versión 1: agregar nombres y mostrarlos en la lista
-
 let amigos = [];
 
 function agregarAmigo() {
@@ -13,7 +11,7 @@ function agregarAmigo() {
 
   amigos.push(nombre);
   mostrarLista();
-  input.value = ""; // limpiar input
+  input.value = "";
 }
 
 function mostrarLista() {
@@ -25,4 +23,17 @@ function mostrarLista() {
     li.textContent = amigo;
     lista.appendChild(li);
   });
+}
+
+function sortearAmigo() {
+  if (amigos.length === 0) {
+    alert("La lista está vacía. Agrega al menos un nombre.");
+    return;
+  }
+
+  const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+  const amigoSorteado = amigos[indiceAleatorio];
+
+  const resultado = document.getElementById("resultado");
+  resultado.innerHTML = `<li>🎉 El amigo secreto es: <strong>${amigoSorteado}</strong></li>`;
 }
